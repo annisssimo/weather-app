@@ -1,0 +1,71 @@
+body {
+    font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: url('images/sunset.jpg');
+    background-size: cover; 
+    background-position: center;
+}
+
+img {
+    position: relative;
+    bottom: 20px;
+    height: 150px;
+    width: auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: #fff;
+    font-size: 40px;
+    font-family: fantasy;
+    margin: 20px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+thead {
+    color: #333;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.071);
+}
+
+#unit {
+    display: block;
+    margin: 40px auto 0px;
+    padding: 15px; 
+    border: 2px dotted orange;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 30px;
+    font-weight: 700;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+#unit:hover {
+    box-shadow: 0 0 15px orange;
+}
