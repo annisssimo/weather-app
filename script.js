@@ -16,11 +16,11 @@ function createWeatherTable() {
 }
 
 function convertToFahrenheit(celsiusTemp) {
-    return (celsiusTemp * 9/5) + 32;
+    return Math.round((celsiusTemp * 9/5) + 32);
 }
 
 function convertToCelsius(fahrenheitTemp) {
-    return (fahrenheitTemp - 32) * 5/9;
+    return Math.round((fahrenheitTemp - 32) * 5/9);
 }
 
 function replaceTemperatures() {
@@ -29,19 +29,20 @@ function replaceTemperatures() {
     for (let i = 0; i < weatherList.length; i++) {
         const record = weatherList[i];
         const currentCell = record.getElementsByTagName("temperature")[0];
-        const currentCellValue = parseFloat(currentCell.textContent);
+        const currentCellValue = currentCell.textContent;
 
         let convertedTemp, unit;
 
         if (convertBtn.textContent === "Convert to Celsius") {
-            convertedTemp = convertToFahrenheit(currentCellValue);
-            unit = '°F';
-        } else {
-            convertedTemp = convertToCelsius(currentCellValue);
+            convertedTemp = convertToCelsius(parseInt(currentCellValue, 10));
             unit = '°C';
+        } else {
+            convertedTemp = convertToFahrenheit(parseInt(currentCellValue, 10));
+            unit = '°F';
         }
 
-        currentCell.textContent = `${convertedTemp.toFixed(2)} ${unit}`;
+        currentCell.textContent = `${convertedTemp} ${unit}`;
+        tableBody.rows[i].cells[2].textContent = `${convertedTemp} ${unit}`;
     }
 }
 
