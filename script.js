@@ -15,6 +15,36 @@ function createWeatherTable() {
     }
 }
 
+function convertToFahrenheit(celsiusTemp) {
+    return (celsiusTemp * 9/5) + 32;
+}
+
+function convertToCelsius(fahrenheitTemp) {
+    return (fahrenheitTemp - 32) * 5/9;
+}
+
+function replaceTemperatures() {
+    const weatherList = xmlDoc.getElementsByTagName("weatherRecord");
+
+    for (let i = 0; i < weatherList.length; i++) {
+        const record = weatherList[i];
+        const currentCell = record.getElementsByTagName("temperature")[0];
+        const currentCellValue = parseFloat(currentCell.textContent);
+
+        let convertedTemp, unit;
+
+        if (convertBtn.textContent === "Convert to Celsius") {
+            convertedTemp = convertToFahrenheit(currentCellValue);
+            unit = '°F';
+        } else {
+            convertedTemp = convertToCelsius(currentCellValue);
+            unit = '°C';
+        }
+
+        currentCell.textContent = `${convertedTemp.toFixed(2)} ${unit}`;
+    }
+}
+
 function toggleButton() {
     if (convertBtn.textContent === "Convert to Celsius") {
         convertBtn.textContent = "Convert to Fahrenheit";
